@@ -231,15 +231,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $p->title }}</h5>
                                 <p class="card-text">{{ $p->description }}</p>
-                                @if ($p->category_id == 1)
-                                    <p class="card-text">Website</p>
-                                @elseif($p->category_id == 2)
-                                    <p class="card-text">App</p>
-                                @elseif($p->category_id == 4)
-                                    <p class="card-text">Certificate</p>
-                                @elseif($p->category_id == 5)
-                                    <p class="card-text">Community Service</p>
-                                @endif
                                 <button type="submit" class="btn btn-outline-danger">Delete</button>
                                 <a href="{{ route('portofolios.edit', [$p->id]) }}"
                                     class="btn btn-outline-primary">Edit</a>

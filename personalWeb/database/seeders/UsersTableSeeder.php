@@ -15,14 +15,11 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        // User::create([
-        //     'name'=>"Muhammad Akbar Rahman",
-        //     'email'=> 'tapole13@gmail.com',
-        //     'password'=> Hash::make('123qwerty')
-        // ]);
-        Category::create([
-            'Category'=> 'Community Services'
+
+        User::create([
+            'name' => "Muhammad Akbar Rahman",
+            'email' => 'tapole13@gmail.com',
+            'password' => Hash::make('123qwerty')
         ]);
     }
 }

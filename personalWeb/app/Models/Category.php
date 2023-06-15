@@ -11,6 +11,6 @@ class Category extends Model
     use HasFactory;
     public function portfolios(): HasMany
     {
-        return $this->hasMany(Portfolio::class, 'id_category', 'id');
+        return $this->hasMany(Portfolio::class, 'category_id', 'id');
     }
 }

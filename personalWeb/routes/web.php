@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[WebController::class,'index'])->name('display');
-Route::get('/admin',[WebController::class,'admin'])->middleware(Authenticate::class)->name('admin');
-Route::get('/myLogout',[WebController::class,'myLogout'])->name('myLogout');
+Route::get('/', [WebController::class, 'index'])->name('display');
+Route::get('/admin', [WebController::class, 'admin'])->middleware(Authenticate::class)->name('admin');
+Route::get('/myLogout', [WebController::class, 'myLogout'])->name('myLogout');
 
 Auth::routes([
-    'register'=>false,
+    'register' => false,
     'confirm' => false
 ]);
 
-Route::get('/home/portView/{id}', [App\Http\Controllers\HomeController::class, 'portView'])->name('portView');
+Route::get('/home/portView/{id}', [App\Http\Controllers\WebController::class, 'portView'])->name('portView');
 
-Route::resource('/portofolios','App\Http\Controllers\PortofolioController')->middleware(Authenticate::class);
+Route::resource('/portofolios', 'App\Http\Controllers\PortofolioController')->middleware(Authenticate::class);

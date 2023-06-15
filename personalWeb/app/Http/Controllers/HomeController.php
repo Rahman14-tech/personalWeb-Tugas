@@ -26,10 +26,5 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function portView (Request $request, $id){
-        $Data = DB::table('portfolios')->where('id','=',$id)->get();
-        return view('portfoliosView',[
-            'Data'=>$Data,
-        ]);
-    }
+
 }

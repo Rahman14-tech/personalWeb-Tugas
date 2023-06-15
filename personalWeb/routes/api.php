@@ -18,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('portfolios', [APIController::class, 'index']);
-Route::post('portfolios', [APIController::class, 'store']);
-Route::post('portfolios/{id}', [APIController::class, 'update']);
+Route::group([
+
+    'middleware' => 'auth:api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    Route::post('login', [ApiController::class, 'login']);
+    Route::get('portfolios', [APIController::class, 'index']);
+    Route::post('portfolios', [APIController::class, 'store']);
+    Route::post('portfolios/{id}', [APIController::class, 'update']);
+    Route::post('logout', [ApiController::class, 'logout']);
+
+});
