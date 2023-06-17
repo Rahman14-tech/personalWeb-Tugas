@@ -11,15 +11,11 @@ class WebController extends Controller
 {
     public function index(Request $request)
     {
-        $Website = DB::table('portfolios')->where('category_id', '=', 1)->get();
-        $App = DB::table('portfolios')->where('category_id', '=', 2)->get();
-        $Certificate = DB::table('portfolios')->where('category_id', '=', 3)->get();
+        $Content = portfolio::all();
         $Community = DB::table('portfolios')->where('category_id', '=', 4)->get();
         $Category = DB::table('categories')->get();
         return view('display', [
-            'Website' => $Website,
-            'App' => $App,
-            'Certificate' => $Certificate,
+            'Content' => $Content,
             'Community' => $Community,
             'Category' => $Category,
         ]);

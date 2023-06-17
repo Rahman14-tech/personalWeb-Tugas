@@ -21,14 +21,13 @@ class portofolioController extends Controller
     {
         $requestName = $request->get('q');
         if ($requestName == 'community') {
-            $community = DB::table('portfolios')->where('category_id', '=', 5)->get();
+            $category = DB::table('categories')->where('Category', '=', 'Community Services')->get();
+            $community = DB::table('portfolios')->where('category_id', '=', $category[0]->id)->get();
             return view('portofolios.indexCommunity', [
                 'community' => $community,
             ]);
         }
-        $portofolios = DB::table('portfolios')->whereNot(function ($query) {
-            $query->where('category_id', '5');
-        })->get();
+        $portofolios = portfolio::all();
         return view('portofolios.index', [
             'portofolios' => $portofolios
         ]);

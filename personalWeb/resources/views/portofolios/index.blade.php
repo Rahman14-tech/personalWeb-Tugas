@@ -221,23 +221,25 @@
     <div class="container">
         <div class="row">
             @foreach ($portofolios as $p)
-                <div class="col">
-                    <form action="{{ route('portofolios.destroy', [$p->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <div class="card" style="width: 18rem;">
-                            <img src="{{ asset('storage/' . $p->image_file_route) }}" class="card-img-top"
-                                alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $p->title }}</h5>
-                                <p class="card-text">{{ $p->description }}</p>
-                                <button type="submit" class="btn btn-outline-danger">Delete</button>
-                                <a href="{{ route('portofolios.edit', [$p->id]) }}"
-                                    class="btn btn-outline-primary">Edit</a>
+                @if ($p->category->Category != 'Community Services')
+                    <div class="col">
+                        <form action="{{ route('portofolios.destroy', [$p->id]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{ asset('storage/' . $p->image_file_route) }}" class="card-img-top"
+                                    alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $p->title }}</h5>
+                                    <p class="card-text">{{ $p->description }}</p>
+                                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                    <a href="{{ route('portofolios.edit', [$p->id]) }}"
+                                        class="btn btn-outline-primary">Edit</a>
+                                </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>

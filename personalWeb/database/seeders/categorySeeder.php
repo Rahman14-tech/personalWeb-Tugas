@@ -13,7 +13,7 @@ class categorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categoryArray = array("Web", "Mobile", "Certificate");
+        $categoryArray = array("Web", "Mobile", "Certificate", "Community Services");
         foreach ($categoryArray as $part) {
             DB::table('categories')->insert([
                 'Category' => $part,

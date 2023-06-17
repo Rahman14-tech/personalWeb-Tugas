@@ -378,7 +378,9 @@
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             @foreach ($Category as $cat)
-                                <li data-filter=".filter-{{ $cat->Category }}">{{ $cat->Category }}</li>
+                                @if ($cat->Category != 'Community Services')
+                                    <li data-filter=".filter-{{ $cat->Category }}">{{ $cat->Category }}</li>
+                                @endif
                             @endforeach
                         </ul>
                     </div>
@@ -387,39 +389,45 @@
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
                     <div class="col-lg-4 col-md-6 portfolio-item filter-Website">
-                        @foreach ($Website as $W)
-                            <a href="{{ route('portView', [$W->id]) }}">
-                                <div class="portfolio-wrap">
-                                    <img src="{{ asset('storage/' . $W->image_file_route) }}" class="img-fluid"
-                                        alt="">
-                                    <div class="portfolio-links">
+                        @foreach ($Content as $W)
+                            @if ($W->category->Category == 'Website')
+                                <a href="{{ route('portView', [$W->id]) }}">
+                                    <div class="portfolio-wrap">
+                                        <img src="{{ asset('storage/' . $W->image_file_route) }}" class="img-fluid"
+                                            alt="">
+                                        <div class="portfolio-links">
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item filter-Certificate">
-                        @foreach ($Certificate as $cer)
-                            <a href="{{ route('portView', [$cer->id]) }}">
-                                <div class="portfolio-wrap">
-                                    <img src="{{ asset('storage/' . $cer->image_file_route) }}" class="img-fluid"
-                                        alt="">
-                                    <div class="portfolio-links">
+                        @foreach ($Content as $cer)
+                            @if ($cer->category->Category == 'Certificate')
+                                <a href="{{ route('portView', [$cer->id]) }}">
+                                    <div class="portfolio-wrap">
+                                        <img src="{{ asset('storage/' . $cer->image_file_route) }}" class="img-fluid"
+                                            alt="">
+                                        <div class="portfolio-links">
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                     <div class="col-lg-4 col-md-6 portfolio-item filter-Mobile">
-                        @foreach ($App as $A)
-                            <a href="{{ route('portView', [$A->id]) }}">
-                                <div class="portfolio-wrap">
-                                    <img src="{{ asset('storage/' . $A->image_file_route) }}" class="img-fluid"
-                                        alt="">
-                                    <div class="portfolio-links">
+                        @foreach ($Content as $A)
+                            @if ($A->category->Category == 'Mobile')
+                                <a href="{{ route('portView', [$A->id]) }}">
+                                    <div class="portfolio-wrap">
+                                        <img src="{{ asset('storage/' . $A->image_file_route) }}" class="img-fluid"
+                                            alt="">
+                                        <div class="portfolio-links">
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -439,14 +447,17 @@
                 </div>
 
                 <div class="row">
-                    @foreach ($Community as $Com)
-                        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-                            <div class="icon"><i class="bi bi-briefcase"></i></div>
-                            <h4 class="title"><a href="{{ route('portView', [$Com->id]) }}">{{ $Com->title }}</a>
-                            </h4>
-                            <p class="description d-inline-block text-truncate" style="max-width: 200px;">
-                                {{ $Com->description }}</p>
-                        </div>
+                    @foreach ($Content as $Com)
+                        @if ($Com->category->Category == 'Community Services')
+                            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
+                                <div class="icon"><i class="bi bi-briefcase"></i></div>
+                                <h4 class="title"><a
+                                        href="{{ route('portView', [$Com->id]) }}">{{ $Com->title }}</a>
+                                </h4>
+                                <p class="description d-inline-block text-truncate" style="max-width: 200px;">
+                                    {{ $Com->description }}</p>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
 
