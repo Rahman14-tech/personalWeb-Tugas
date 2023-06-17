@@ -318,14 +318,14 @@
                     <div class="col-lg-6" data-aos="fade-up">
                         <h3 class="resume-title">Sumary</h3>
                         <div class="resume-item pb-0">
-                            <h4>Alex Smith</h4>
-                            <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing
-                                    and developing user-centered digital/print marketing material from initial concept
-                                    to final, polished deliverable.</em></p>
+                            <h4>Muhammad Akbar Rahman</h4>
+                            <p><em>A programmer that aim to be a full stack developer. Notable framework that he learnt
+                                    by himself are django, react, and jetpack compose. Beside that he learn laravel, C,
+                                    java, and etc by attending the university.</em></p>
                             <ul>
-                                <li>Portland par 127,Orlando, FL</li>
+                                <li>Malang, Jalan Lorem</li>
                                 <li>(123) 456-7891</li>
-                                <li>alice.barkley@example.com</li>
+                                <li>tubesds@gmail.com</li>
                             </ul>
                         </div>
 
@@ -334,9 +334,7 @@
                             <h4>Bachelor of Computer Science</h4>
                             <h5>2021 - 2025</h5>
                             <p><em>BINUS University</em></p>
-                            <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel
-                                ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae
-                                consequatur neque etlon sader mart dila</p>
+                            <p>He attends the university of binus at 2021 and graduated in 2025. </p>
                         </div>
                     </div>
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
